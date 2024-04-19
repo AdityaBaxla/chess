@@ -65,7 +65,8 @@ export class Game {
     //update the board
     // push the move
     //send the updated move
-    if (this.board.moves.length % 2 == 0) {
+    console.log(this.moves);
+    if (this.moves.length % 2 == 1) {
       this.player2.send(
         JSON.stringify({
           type: MOVE,

@@ -26,8 +26,11 @@ class Game {
     }
     makeMove(socket, move) {
         // validation
+        console.log("went inside make move");
         try {
             this.board.move(move);
+            console.log("made move");
+            this.moves.push(move);
         }
         catch (e) {
             // setup logic for illegal move, not the current player's move
@@ -48,7 +51,8 @@ class Game {
         //update the board
         // push the move
         //send the updated move
-        if (this.board.moves.length % 2 == 0) {
+        console.log(this.moves);
+        if (this.moves.length % 2 == 1) {
             this.player2.send(JSON.stringify({
                 type: messages_1.MOVE,
                 payload: move,
