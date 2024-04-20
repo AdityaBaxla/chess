@@ -1,12 +1,11 @@
-import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../componets/Button";
-import { useSocket } from "../hooks/userSockets";
-
-import { INIT_GAME, MOVE, GAME_OVER } from "../../../backend1/src/messages";
+import { useSocket } from "../hooks/useSockets";
 
 const Landing = () => {
   const navigate = useNavigate();
+
+  const socket = useSocket();
 
   if (!socket) return <div></div>;
   return (
@@ -22,11 +21,6 @@ const Landing = () => {
               <Button
                 text="Play Online"
                 onClick={() => {
-                  socket.send(
-                    JSON.stringify({
-                      type: "init_game",
-                    })
-                  );
                   navigate("/game");
                 }}
               ></Button>

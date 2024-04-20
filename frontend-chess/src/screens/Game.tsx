@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ChessBoard from "../componets/ChessBoard";
-import { useSocket } from "../hooks/userSockets";
+import { useSocket } from "../hooks/useSockets";
 import { INIT_GAME, MOVE, GAME_OVER } from "../../../backend1/src/messages";
 
 const Game = () => {
